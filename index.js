@@ -14,6 +14,21 @@ let draw = `It's a draw!`;
 let playerWinsGame = `The player has won the game!`;
 let computerWinsGame = `The computer has won the game!`;
 
+let rockBtn = document.createElement('button');
+    rockBtn.innerHTML = "Rock";
+    rockBtn.style.cssText = "border: 2px solid black; width: 100px; height: 100px; padding: 10px; border-radius: 10px; background-color: salmon;";
+document.body.appendChild(rockBtn);
+
+let paperBtn = document.createElement('button');
+    paperBtn.innerHTML = "Paper";
+    paperBtn.style.cssText = "border: 2px solid black; width: 100px; height: 100px; padding: 10px; border-radius: 10px; background-color: salmon;";
+document.body.appendChild(paperBtn);
+
+let scissorsBtn = document.createElement('button');
+    scissorsBtn.innerHTML = "Scissors";
+    scissorsBtn.style.cssText = "border: 2px solid black; width: 100px; height: 100px; padding: 10px; border-radius: 10px; background-color: salmon;";
+document.body.appendChild(scissorsBtn);
+
 
 function playRound(playerSelection, computerSelection) {
         if (playerSelection.toLowerCase() == computerSelection) {
@@ -35,8 +50,8 @@ function playRound(playerSelection, computerSelection) {
         }
 }
 
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = window.prompt('Rock, paper, scissors?', '');
+    for (let i = 0; ; i++) {
+      //  let playerSelection = window.prompt('Rock, paper, scissors?', '');
         const computerSelection = computerPlay();
         let roundResult = playRound(playerSelection, computerSelection);
 
@@ -53,15 +68,17 @@ function playRound(playerSelection, computerSelection) {
         console.log(roundResult);
         console.log(`You chose ${playerSelection}, computer chose ${computerSelection}. Your score is ${playerScore}. Computer's score is ${computerScore}.`);
 
-        if (totalScore === 5 && (playerScore > computerScore)) {
+      /*  if (totalScore === 5 && (playerScore > computerScore)) {
             console.log(playerWinsGame);
         } else if (totalScore === 5 && (computerScore > playerScore)) {
             console.log(computerWinsGame);
         } else if (totalScore === 5 && (computerScore === playerScore)) {
             console.log(draw);
-        }
+        } */
+
+        
         
     }
-
+ 
 
 
