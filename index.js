@@ -62,6 +62,18 @@ document.getElementById('scissors').addEventListener('click', function () {
     }
 })
 
+const resultsContainer = document.querySelector('#resultsContainer');
+
+const results = document.createElement('div');
+results.classList.add('content');
+results.textContent = "Hello World";
+results.style.cssText = "color: magenta; background-color: aquamarine;";
+
+resultsContainer.appendChild(results);
+
+
+
+
 
 /* function playRound(playerSelection, computerSelection) {
         if (playerSelection == computerSelection) {
@@ -83,7 +95,7 @@ document.getElementById('scissors').addEventListener('click', function () {
         }
 } */
 
-    for (let i = 0; i < 5; i++) {
+   /* for (let i = 0; i < 5; i++) {
       //  let playerSelection = window.prompt('Rock, paper, scissors?', '');
         const computerSelection = computerPlay();
         let roundResult = playRound(playerSelection, computerSelection);
@@ -111,6 +123,6 @@ document.getElementById('scissors').addEventListener('click', function () {
 
         
         
-     } 
+  //   } 
  
 
