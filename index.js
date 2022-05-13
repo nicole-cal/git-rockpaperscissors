@@ -6,51 +6,84 @@ function computerPlay() {
     const moves = ["rock", "paper", "scissors"];
     const computerSelection = moves[Math.floor(Math.random() * moves.length)];
     return computerSelection;
-  }
+  };
 
+let computerSelection = computerPlay();
+console.log(computerSelection);
+  
 let playerWinsRound = `Player wins the round!`;
 let computerWinsRound = `Computer wins the round!`;
 let draw = `It's a draw!`;
 let playerWinsGame = `The player has won the game!`;
 let computerWinsGame = `The computer has won the game!`;
 
-let rockBtn = document.createElement('button');
-    rockBtn.innerHTML = "Rock";
-    rockBtn.style.cssText = "border: 2px solid black; width: 100px; height: 100px; padding: 10px; border-radius: 10px; background-color: salmon;";
-document.body.appendChild(rockBtn);
+document.getElementById('rock').addEventListener('click', function() {
+    let a, b;
+    a = document.getElementById('text');
+    b = document.getElementById('rock').value = 'rock';
+    for (let i = 0; i < 1; i++) {
+        if (b == 'rock' && computerPlay() == 'paper') {
+            return console.log(computerWinsRound);
+        } else if (b == 'rock' && computerPlay() == 'scissors') {
+            return console.log(playerWinsRound);
+        } else if (b =='rock' && computerPlay() == 'rock') {
+            return console.log(draw);
+        } 
+    }
+})
 
-let paperBtn = document.createElement('button');
-    paperBtn.innerHTML = "Paper";
-    paperBtn.style.cssText = "border: 2px solid black; width: 100px; height: 100px; padding: 10px; border-radius: 10px; background-color: salmon;";
-document.body.appendChild(paperBtn);
+document.getElementById('paper').addEventListener('click', function() {
+    let a, b;
+    a = document.getElementById('paper');
+    b = document.getElementById('paper').value = 'paper';
+    for (let i = 0; i < 1; i++) {
+        if (b == 'paper' && computerPlay() == 'rock') {
+            return console.log(playerWinsRound);
+        } else if (b == 'paper' && computerPlay() == 'scissors') {
+            return console.log(computerWinsRound);
+        } else if (b == 'paper' && computerPlay() == 'paper') {
+            return console.log(draw);
+        } 
+    }
+})
 
-let scissorsBtn = document.createElement('button');
-    scissorsBtn.innerHTML = "Scissors";
-    scissorsBtn.style.cssText = "border: 2px solid black; width: 100px; height: 100px; padding: 10px; border-radius: 10px; background-color: salmon;";
-document.body.appendChild(scissorsBtn);
+document.getElementById('scissors').addEventListener('click', function () {
+    let a, b; 
+    a = document.getElementById('scissors');
+    b = document.getElementById('scissors').value = 'scissors';
+    for (let i = 0; i < 1; i++) {
+        if (b == 'scissors' && computerPlay() == 'paper') {
+            return console.log(playerWinsRound);
+        } else if (b == 'scissors' && computerPlay() == 'rock') {
+            return console.log(computerWinsRound);
+        } else if (b == 'scissors' && computerPlay() == 'scissors') {
+            return console.log(draw);
+        }
+    }
+})
 
 
-function playRound(playerSelection, computerSelection) {
-        if (playerSelection.toLowerCase() == computerSelection) {
+/* function playRound(playerSelection, computerSelection) {
+        if (playerSelection == computerSelection) {
             return draw;
-        } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == "paper") {
+        } else if (playerSelection == 'rock' && computerSelection == "paper") {
            return computerWinsRound;
-        } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == "scissors") {
+        } else if (playerSelection == 'rock' && computerSelection == "scissors") {
            return playerWinsRound;
-        } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == "rock") {
+        } else if (playerSelection == 'paper' && computerSelection == "rock") {
            return playerWinsRound;
-        } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == "scissors") {
+        } else if (playerSelection == 'paper' && computerSelection == "scissors") {
            return computerWinsRound;
-        } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == "paper") {
+        } else if (playerSelection == 'scissors' && computerSelection == "paper") {
           return playerWinsRound;
-        } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == "rock") {
+        } else if (playerSelection == 'scissors' && computerSelection == "rock") {
            return computerWinsRound;
         } else {
             return `Please enter a valid answer.`;
         }
-}
+} */
 
-    for (let i = 0; ; i++) {
+    for (let i = 0; i < 5; i++) {
       //  let playerSelection = window.prompt('Rock, paper, scissors?', '');
         const computerSelection = computerPlay();
         let roundResult = playRound(playerSelection, computerSelection);
@@ -66,7 +99,7 @@ function playRound(playerSelection, computerSelection) {
         }
 
         console.log(roundResult);
-        console.log(`You chose ${playerSelection}, computer chose ${computerSelection}. Your score is ${playerScore}. Computer's score is ${computerScore}.`);
+        console.log(`You chose ${playerSelection}, computer chose ${computerSelection}. Your score is ${playerScore}. Computer's score is ${computerScore}.`);  
 
       /*  if (totalScore === 5 && (playerScore > computerScore)) {
             console.log(playerWinsGame);
@@ -78,7 +111,6 @@ function playRound(playerSelection, computerSelection) {
 
         
         
-    }
+     } 
  
-
 
