@@ -27,14 +27,14 @@ let playerRock = document.getElementById('rock').addEventListener('click', funct
         if (b == 'rock' && computerPlay() == 'paper') {
             totalScore++;
             computerScore++;
-            return console.log(`${computerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. ${totalScore}`);
+            return console.log(`${computerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. Overall score is ${totalScore}.`);
         } else if (b == 'rock' && computerPlay() == 'scissors') {
             totalScore++;
             playerScore++;
-            return console.log(`${playerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. ${totalScore}`);
+            return console.log(`${playerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. Overall score is ${totalScore}.`);
         } else if (b =='rock' && computerPlay() == 'rock') {
             totalScore++;
-            return console.log(`${draw} Player score is ${playerScore}, computer score is ${computerScore}. ${totalScore}`);
+            return console.log(`${draw} Player score is ${playerScore}, computer score is ${computerScore}. Overall score is ${totalScore}.`);
         } 
       }
       
@@ -56,14 +56,14 @@ let playerPaper = document.getElementById('paper').addEventListener('click', fun
         if (b == 'paper' && computerPlay() == 'rock') {
             totalScore++;
             playerScore++;
-            return console.log(`${playerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. ${totalScore}`);
+            return console.log(`${playerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. Overall score is ${totalScore}.`);
         } else if (b == 'paper' && computerPlay() == 'scissors') {
             totalScore++;
             computerScore++;
-            return console.log(`${computerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. ${totalScore}`);
+            return console.log(`${computerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. Overall score is ${totalScore}.`);
         } else if (b == 'paper' && computerPlay() == 'paper') {
             totalScore++;
-            return console.log(`${draw} Player score is ${playerScore}, computer score is ${computerScore}. ${totalScore}`);
+            return console.log(`${draw} Player score is ${playerScore}, computer score is ${computerScore}. Overall score is ${totalScore}.`);
         }
       }
 
@@ -84,14 +84,14 @@ let playerScissors = document.getElementById('scissors').addEventListener('click
         if (b == 'scissors' && computerPlay() == 'paper') {
             totalScore++;
             playerScore++;
-            return console.log(`${playerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. ${totalScore}`);
+            return console.log(`${playerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. Overall score is ${totalScore}.`);
         } else if (b == 'scissors' && computerPlay() == 'rock') {
             totalScore++;
             computerScore++;
-            return console.log(`${computerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. ${totalScore}`);
+            return console.log(`${computerWinsRound} Player score is ${playerScore}, computer score is ${computerScore}. Overall score is ${totalScore}.`);
         } else if (b == 'scissors' && computerPlay() == 'scissors') {
             totalScore++;
-            return console.log(`${draw} Player score is ${playerScore}, computer score is ${computerScore}. ${totalScore}`);
+            return console.log(`${draw} Player score is ${playerScore}, computer score is ${computerScore}. Overall score is ${totalScore}.`);
         }
       }
 
@@ -105,13 +105,28 @@ let playerScissors = document.getElementById('scissors').addEventListener('click
 })
 
 
-/* if (totalScore === 5 && (playerScore > computerScore)) {
-    console.log(playerWinsGame);
-} else if (totalScore === 5 && (computerScore > playerScore)) {
-    console.log(computerWinsGame);
-} else if (totalScore === 5 && (computerScore === playerScore)) {
-    console.log(draw);
-} */ 
+let baseLogFunction = console.log;
+console.log = function(){
+    baseLogFunction.apply(console, arguments);
+
+    let args = Array.prototype.slice.call(arguments);
+    for(let i = 0; i < args.length; i++) {
+        let node = createLogNode(args[i]);
+        document.querySelector("#container").appendChild(node);
+    }
+}
+
+function createLogNode(message){
+    let node = document.createElement("div");
+    let textNode = document.createTextNode(message);
+    node.appendChild(textNode);
+    return node;
+}
+
+window.onerror = function(message, url, linenumber) {
+    console.log("JavaScript error: " + message + " on line " +
+        linenumber + " for " + url);
+}
 
 
 
@@ -120,7 +135,7 @@ const resultsContainer = document.querySelector('#resultsContainer');
 const results = document.createElement('div');
 results.classList.add('content');
 results.textContent = "Hello World";
-results.textContent = `${console.log(playerRock)}, ${console.log(playerScissors)}, ${console.log(playerPaper)}`
+/* results.textContent = `${console.log(playerRock)}, ${console.log(playerScissors)}, ${console.log(playerPaper)}` */
 results.style.cssText = "color: magenta; background-color: aquamarine;";
 
 resultsContainer.appendChild(results);
