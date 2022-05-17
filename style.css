@@ -21,6 +21,28 @@ h1 {
 #results {
     height: 500px;
     overflow-y: scroll;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+}
+
+#scores {
+    display: flex;
+    position: fixed;
+    justify-content: center;   
+}
+
+#playerScoreDiv,
+#computerScoreDiv {
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 2px solid black;
+    padding: 10px 10px;
+    border-radius: 10px;
+    width: 170px;
+    height: 50px;
+    background-color: #754e85;
+    color: white;
 }
 
 #rock,
