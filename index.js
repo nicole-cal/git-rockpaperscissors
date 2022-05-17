@@ -14,8 +14,10 @@ console.log(computerSelection);
 let playerWinsRound = `Player wins the round!`;
 let computerWinsRound = `Computer wins the round!`;
 let draw = `It's a draw!`;
+
 let playerWinsGame = `The player has won the game!`;
 let computerWinsGame = `The computer has won the game!`;
+
 
 
     document.getElementById('rock').addEventListener('click', function() {
@@ -71,30 +73,38 @@ function playRound(playerSelection) {
     } else if (playerSelection == 'rock' && computerSelection == "paper") {
         totalScore++;
         computerScore++;
-        return console.log(`${computerWinsRound}`);
+        console.log(`Round ${totalScore}: ${computerWinsRound}`);
+        if ((playerScore === 5) || (computerScore === 5)) gameWon();
      } else if (playerSelection == 'rock' && computerSelection == "scissors") {
         totalScore++;
         playerScore++;
-        return console.log(`Round ${totalScore}: ${playerWinsRound}`);
+        console.log(`Round ${totalScore}: ${playerWinsRound}`);
+        if ((playerScore === 5) || (computerScore === 5)) gameWon();
      } else if (playerSelection == 'paper' && computerSelection == "rock") {
         totalScore++;
+        console.log(`Round ${totalScore}: ${playerWinsRound}`);
         playerScore++;
-        return console.log(`Round ${totalScore}: ${playerWinsRound}`);
+        if ((playerScore === 5) || (computerScore === 5)) gameWon();
      } else if (playerSelection == 'paper' && computerSelection == "scissors") {
         totalScore++;
+        console.log(`Round ${totalScore}: ${computerWinsRound}`);
         computerScore++;
-        return console.log(`Round ${totalScore}: ${computerWinsRound}`);
+        if ((playerScore === 5) || (computerScore === 5)) gameWon();
      } else if (playerSelection == 'scissors' && computerSelection == "paper") {
         totalScore++;
-        playerScore++;
-       return console.log(`Round ${totalScore}: ${playerWinsRound}`);
+       console.log(`Round ${totalScore}: ${playerWinsRound}`);
+       playerScore++;
+       if ((playerScore === 5) || (computerScore === 5)) gameWon();
      } else if (playerSelection == 'scissors' && computerSelection == "rock") {
         totalScore++;
+        console.log(`Round ${totalScore}: ${computerWinsRound}`);
         computerScore++;
-        return console.log(`Round ${totalScore}: ${computerWinsRound}`);
+        if ((playerScore === 5) || (computerScore === 5)) gameWon();
      } else if (playerSelection === computerSelection) {
         totalScore++;
-        return console.log(`Round ${totalScore}: ${draw}`);
+        console.log(`Round ${totalScore}: ${draw}`);
+        if ((playerScore === 5) || (computerScore === 5)) gameWon();
+        
      } 
      
      playerContent.textContent = `Player's score: ${playerScore}`;
@@ -102,16 +112,7 @@ function playRound(playerSelection) {
 
      computerContent.textContent = `Computer's score: ${computerScore}`;
      computerScoreDiv.appendChild(computerContent);
-    
-
-    
-    
-     
-     
 }
-
-
-
 
 function gameWon() {
     if (playerScore === 5) {
