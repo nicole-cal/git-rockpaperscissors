@@ -11,10 +11,16 @@ h1 {
     font-size: 36px;
 }
 
-#container {
+#container,
+#results {
     background-color: #548561;
     text-align: center;
-    line-height: 50px;
+    line-height: 3em;
+}
+
+#results {
+    height: 500px;
+    overflow-y: scroll;
 }
 
 #rock,
